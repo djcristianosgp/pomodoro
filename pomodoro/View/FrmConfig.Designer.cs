@@ -38,9 +38,17 @@
             label3 = new Label();
             label4 = new Label();
             nmMinPausa = new NumericUpDown();
+            chkMaximizaFoco = new CheckBox();
+            chkMaximizaDescanso = new CheckBox();
+            chkNotificaDescanso = new CheckBox();
+            chkNotificaFoco = new CheckBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmMinFoco).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nmMinPausa).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -48,9 +56,9 @@
             panel1.Controls.Add(btnSalvar);
             panel1.Controls.Add(btnCancelar);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 124);
+            panel1.Location = new Point(0, 320);
             panel1.Name = "panel1";
-            panel1.Size = new Size(415, 81);
+            panel1.Size = new Size(395, 81);
             panel1.TabIndex = 0;
             // 
             // btnSalvar
@@ -62,7 +70,7 @@
             btnSalvar.FlatStyle = FlatStyle.Flat;
             btnSalvar.Font = new Font("Century Gothic", 20F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalvar.Image = (Image)resources.GetObject("btnSalvar.Image");
-            btnSalvar.Location = new Point(71, 0);
+            btnSalvar.Location = new Point(51, 0);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(172, 81);
             btnSalvar.TabIndex = 9;
@@ -80,7 +88,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Century Gothic", 20F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.Image = (Image)resources.GetObject("btnCancelar.Image");
-            btnCancelar.Location = new Point(243, 0);
+            btnCancelar.Location = new Point(223, 0);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(172, 81);
             btnCancelar.TabIndex = 8;
@@ -159,12 +167,79 @@
             nmMinPausa.TextAlign = HorizontalAlignment.Center;
             nmMinPausa.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
+            // chkMaximizaFoco
+            // 
+            chkMaximizaFoco.AutoSize = true;
+            chkMaximizaFoco.Location = new Point(23, 32);
+            chkMaximizaFoco.Name = "chkMaximizaFoco";
+            chkMaximizaFoco.Size = new Size(175, 21);
+            chkMaximizaFoco.TabIndex = 7;
+            chkMaximizaFoco.Text = "Maximizar no modo Foco";
+            chkMaximizaFoco.UseVisualStyleBackColor = true;
+            // 
+            // chkMaximizaDescanso
+            // 
+            chkMaximizaDescanso.AutoSize = true;
+            chkMaximizaDescanso.Location = new Point(23, 59);
+            chkMaximizaDescanso.Name = "chkMaximizaDescanso";
+            chkMaximizaDescanso.Size = new Size(203, 21);
+            chkMaximizaDescanso.TabIndex = 8;
+            chkMaximizaDescanso.Text = "Maximizar no modo Descanso";
+            chkMaximizaDescanso.UseVisualStyleBackColor = true;
+            // 
+            // chkNotificaDescanso
+            // 
+            chkNotificaDescanso.AutoSize = true;
+            chkNotificaDescanso.Location = new Point(26, 58);
+            chkNotificaDescanso.Name = "chkNotificaDescanso";
+            chkNotificaDescanso.Size = new Size(196, 21);
+            chkNotificaDescanso.TabIndex = 10;
+            chkNotificaDescanso.Text = "Notificar no modo Descanso";
+            chkNotificaDescanso.UseVisualStyleBackColor = true;
+            // 
+            // chkNotificaFoco
+            // 
+            chkNotificaFoco.AutoSize = true;
+            chkNotificaFoco.Location = new Point(26, 31);
+            chkNotificaFoco.Name = "chkNotificaFoco";
+            chkNotificaFoco.Size = new Size(168, 21);
+            chkNotificaFoco.TabIndex = 9;
+            chkNotificaFoco.Text = "Notificar no modo Foco";
+            chkNotificaFoco.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(chkNotificaFoco);
+            groupBox1.Controls.Add(chkNotificaDescanso);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(20, 95);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(350, 100);
+            groupBox1.TabIndex = 11;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Notificação";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(chkMaximizaFoco);
+            groupBox2.Controls.Add(chkMaximizaDescanso);
+            groupBox2.ForeColor = Color.White;
+            groupBox2.Location = new Point(20, 203);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(350, 100);
+            groupBox2.TabIndex = 12;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Tela";
+            // 
             // FrmConfig
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(415, 205);
+            ClientSize = new Size(395, 401);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(nmMinPausa);
@@ -183,6 +258,10 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)nmMinFoco).EndInit();
             ((System.ComponentModel.ISupportInitialize)nmMinPausa).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +277,11 @@
         private Label label3;
         private Label label4;
         private NumericUpDown nmMinPausa;
+        private CheckBox chkMaximizaFoco;
+        private CheckBox chkMaximizaDescanso;
+        private CheckBox chkNotificaDescanso;
+        private CheckBox chkNotificaFoco;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 }

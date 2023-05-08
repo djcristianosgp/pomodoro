@@ -49,6 +49,7 @@
             lblModoExecucao = new Label();
             imlIcones = new ImageList(components);
             piImage = new PictureBox();
+            notification = new NotifyIcon(components);
             pnProgresso.SuspendLayout();
             pnBotoes.SuspendLayout();
             panel1.SuspendLayout();
@@ -266,7 +267,13 @@
             piImage.TabIndex = 10;
             piImage.TabStop = false;
             // 
-            // Form1
+            // notification
+            // 
+            notification.BalloonTipIcon = ToolTipIcon.Info;
+            notification.Icon = (Icon)resources.GetObject("notification.Icon");
+            notification.Visible = true;
+            // 
+            // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -283,7 +290,7 @@
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.White;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
+            Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pomodoro";
             Load += Form1_Load;
@@ -316,5 +323,6 @@
         private Label lblModoExecucao;
         private ImageList imlIcones;
         private PictureBox piImage;
+        private NotifyIcon notification;
     }
 }

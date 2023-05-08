@@ -1,5 +1,5 @@
-using System.Diagnostics;
 using pomodoro.Controller;
+using System.Diagnostics;
 
 namespace pomodoro
 {
@@ -107,6 +107,9 @@ namespace pomodoro
             piImage.BackgroundImage = imlIcones.Images[0];
             btnStart.Visible = false;
             this.WindowState = FormWindowState.Minimized;
+            this.WindowState = Uteis.bMaximizarModoFoco == true ? FormWindowState.Maximized : this.WindowState;
+            if(Uteis.bNotificarModoFoco)
+                Fu_EnviaNoificação(lblModoExecucao.Text, "Hora de voltar ao trabalho!!!");
         }
 
         private void FU_Return()
@@ -137,7 +140,9 @@ namespace pomodoro
             lblModoExecucao.ForeColor = Color.Chartreuse;
             piImage.BackgroundImage = imlIcones.Images[1];
             btnStart.Visible = false;
-            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = Uteis.bMaximizarModoDescanso == true ? FormWindowState.Maximized : this.WindowState;
+            if (Uteis.bNotificarModoDescanso)
+                Fu_EnviaNoificação(lblModoExecucao.Text, "Pausa para o cafezinho!!!");
         }
 
         private void FU_Pause()
@@ -165,6 +170,14 @@ namespace pomodoro
             piImage.Visible = false;
             lblModoExecucao.Text = "...";
             lblModoExecucao.ForeColor = Color.White;
+        }
+
+        public void Fu_EnviaNoificação(string Titulo, string Texto)
+        {
+            notification.BalloonTipTitle = Titulo;
+            notification.BalloonTipText = Texto;
+            notification.ShowBalloonTip(5000);
+            notification.Visible = true;
         }
 
         private void btnStartPrincipal_Click(object sender, EventArgs e)
